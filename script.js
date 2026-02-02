@@ -1,6 +1,18 @@
 const API_TOKEN = 'f287fbbb6c808199065f288492b59ea1f39bad58';
 const API_URL = 'https://api-ssl.bitly.com/v4/shorten';
 
+// Add loading state helper
+function setLoading(isLoading) {
+    if (isLoading) {
+        shortenBtn.textContent = '⏳ Shortening...';
+        shortenBtn.disabled = true;
+        shortenBtn.style.opacity = '0.6';
+    } else {
+        shortenBtn.textContent = 'Shorten';
+        shortenBtn.disabled = false;
+        shortenBtn.style.opacity = '1';
+    }
+}
 const urlInput = document.getElementById('urlInput');
 const shortenBtn = document.getElementById('shortenBtn');
 const result = document.getElementById('result');
@@ -29,17 +41,16 @@ async function shortenURL() {
     const longUrl = urlInput.value.trim();
 
     if (!longUrl) {
-        alert('Please enter a URL');
+        showMessage('⚠️ Please enter a URL', 'error');
         return;
     }
 
     if (!isValidURL(longUrl)) {
-        alert('Please enter a valid URL (must start with http:// or https://)');
+        showMessage('⚠️ Please enter a valid URL (must start with http:// or https://)', 'error');
         return;
     }
 
-    shortenBtn.textContent = 'Shortening...';
-    shortenBtn.disabled = true;
+    setLoading(true);
 
     try {
         const response = await fetch(API_URL, {
@@ -74,14 +85,26 @@ async function shortenURL() {
 
         displayLinks();
         urlInput.value = '';
+        showMessage('✅ URL shortened successfully!', 'success');
 
     } catch (error) {
-        alert('Error shortening URL. Please check your API token and try again.');
+        showMessage('❌ Error: Check your API token or try again', 'error');
         console.error(error);
     } finally {
-        shortenBtn.textContent = 'Shorten';
-        shortenBtn.disabled = false;
+        setLoading(false);
     }
+}
+
+function showMessage(text, type) {
+    const existingMsg = document.querySelector('.toast-message');
+    if (existingMsg) existingMsg.remove();
+
+    const msg = document.createElement('div');
+    msg.className = `toast-message ${type}`;
+    msg.textContent = text;
+    document.body.appendChild(msg);
+
+    setTimeout(() => msg.remove(), 3000);
 }
 
 function copyToClipboard(text) {
