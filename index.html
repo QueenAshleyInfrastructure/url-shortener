@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>URL Shortener</h1>
+            <p>Shorten your links instantly</p>
+        </header>
+
+        <main>
+            <div class="input-section">
+                <input 
+                    type="url" 
+                    id="urlInput" 
+                    placeholder="Paste your long URL here"
+                    aria-label="URL to shorten"
+                >
+                <button id="shortenBtn">Shorten</button>
+            </div>
+
+            <div id="result" class="result hidden">
+                <p>Your shortened URL:</p>
+                <div class="short-url-display">
+                    <a id="shortUrl" href="" target="_blank"></a>
+                    <button id="copyBtn" aria-label="Copy to clipboard">Copy</button>
+                </div>
+            </div>
+
+            <div class="links-section">
+                <h2>Your Links</h2>
+                <div id="linksList" class="links-list">
+                    <!-- Saved links appear here -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
