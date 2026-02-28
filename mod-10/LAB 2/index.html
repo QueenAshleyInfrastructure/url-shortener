@@ -12,16 +12,7 @@
   <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-
-  <!-- hooks -->
-  <script type="text/babel" src="custom-hooks/useDebounce.js"></script>
-  <script type="text/babel" src="custom-hooks/usePagination.js"></script>
-
-  <!-- demos -->
-  <script type="text/babel" src="demo/DebounceSearchDemo.jsx"></script>
-  <script type="text/babel" src="demo/PaginationDemo.jsx"></script>
-
-  <!-- app -->
-  <script type="text/babel" src="app.jsx"></script>
+  <!-- Single bundle so scripts run in order (avoids Babel async load race) -->
+  <script type="text/babel" data-preset="react" src="app.bundle.jsx"></script>
 </body>
 </html>
