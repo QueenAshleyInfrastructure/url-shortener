@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Lab 3 — Todo App (Context API)</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <script>
+    try {
+      var t = localStorage.getItem('lab3-theme');
+      if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+    } catch (_) {}
+  </script>
+</head>
+<body>
+  <main id="root"></main>
+
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <!-- contexts -->
+  <script type="text/babel" src="contexts/ThemeContext.js"></script>
+  <script type="text/babel" src="contexts/FilterContext.js"></script>
+  <script type="text/babel" src="contexts/TodoContext.js"></script>
+
+  <!-- components -->
+  <script type="text/babel" src="components/ThemeToggleButton.jsx"></script>
+  <script type="text/babel" src="components/FilterButtons.jsx"></script>
+  <script type="text/babel" src="components/TodoInput.jsx"></script>
+  <script type="text/babel" src="components/TodoItem.jsx"></script>
+  <script type="text/babel" src="components/TodoList.jsx"></script>
+
+  <!-- app -->
+  <script type="text/babel" src="app.jsx"></script>
+</body>
+</html>

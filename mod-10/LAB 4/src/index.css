@@ -1,0 +1,160 @@
+:root {
+  --bg: #0f1720;
+  --card: #1a2332;
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #e6eef6;
+  --muted: #9aa7b6;
+  --accent: #2563eb;
+  --link: #60a5fa;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, -apple-system, Segoe UI, Roboto, Arial;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--card);
+}
+
+.nav a, .nav button {
+  font-size: 0.95rem;
+}
+
+.nav button {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font: inherit;
+}
+
+.nav button:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.page-title {
+  margin: 0 0 1.5rem;
+  font-size: 1.75rem;
+}
+
+.post-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.post-list li {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.post-list li:last-child {
+  border-bottom: none;
+}
+
+.post-list a {
+  font-size: 1.1rem;
+}
+
+.post-list .muted {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-top: 0.25rem;
+}
+
+.post-article h1 {
+  margin: 0 0 1rem;
+  font-size: 1.75rem;
+}
+
+.post-article .content {
+  line-height: 1.65;
+  color: var(--text);
+}
+
+.not-found {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--muted);
+}
+
+.login-box {
+  max-width: 360px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--card);
+  text-align: center;
+}
+
+.login-box h1 {
+  margin: 0 0 1.5rem;
+  font-size: 1.5rem;
+}
+
+.login-box .btn {
+  padding: 0.6rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  background: var(--accent);
+  color: white;
+  cursor: pointer;
+  font: inherit;
+}
+
+.login-box .btn:hover {
+  filter: brightness(1.1);
+}
+
+.admin-dashboard {
+  padding: 2rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--card);
+}
+
+.admin-dashboard h1 {
+  margin: 0 0 0.5rem;
+  font-size: 1.5rem;
+}
+
+.admin-dashboard p {
+  margin: 0;
+  color: var(--muted);
+}
